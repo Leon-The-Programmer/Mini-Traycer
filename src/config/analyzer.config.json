@@ -1,0 +1,7 @@
+{
+  "strategy": "Hardcoded",
+  "llm": {
+    "apiKey": "",
+    "model": "gpt-4o-mini"
+  }
+}

@@ -1,0 +1,19 @@
+{
+  "name": "mini-traycer",
+  "version": "1.0.0",
+  "description": "Mini Traycer. A small piece of software that mimics the core idea of Traycer AI, i.e the Planning Layer on the top of coding agents.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "start:cli": "ts-node src/cli/index.ts",
+    "watch": "tsc -w"
+  },
+  "author": "Subhanshu",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^24.6.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.9.3"
+  }
+}
