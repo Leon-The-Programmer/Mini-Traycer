@@ -1,3 +1,3 @@
-export { parseFile } from "./parser";
+export { parseTask } from "./parser";
 export { Analyzer } from "./analyzer";
-export { formatResult } from "./formatter";
+export { formatTaskBreakdown } from "./formatter";

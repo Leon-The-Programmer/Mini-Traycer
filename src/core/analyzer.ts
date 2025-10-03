@@ -1,4 +1,4 @@
-import { AnalyzerStrategy, AnalysisResult } from "../types/analysis";
+import { AnalyzerStrategy, Task, TaskBreakdown } from "../types/analysis";
 import { HardcodedStrategy } from "../strategies/HardcodedStrategy";
 
 export class Analyzer {
@@ -8,8 +8,8 @@ export class Analyzer {
         this.strategy = strategy || new HardcodedStrategy();
     }
 
-    run(content: string, filePath: string): AnalysisResult {
-        return this.strategy.analyze(content, filePath);
+    run(task: Task): TaskBreakdown {
+        return this.strategy.analyze(task);
     }
 }
 
