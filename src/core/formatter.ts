@@ -1,5 +1,10 @@
 import { TaskBreakdown, Step } from "../types/analysis";
 
+/**
+ * A utility to format a TaskBreakdown into a human-readable string.
+ * This is useful for displaying the breakdown in the console.
+*/
+
 export function formatTaskBreakdown(breakdown: TaskBreakdown): string {
     const headerSep = "===========================================";
     const stepSep = "-------------------------------------------";

@@ -2,8 +2,9 @@ import { Task, TaskType } from "../types/analysis";
 
 /**
  * Classifies a task description and extracts scope/requirements.
- * @param description The user-provided task description
- * @returns Task object
+ * Transforms raw user input into structured Task object.
+ * @param description The user-provided task description.
+ * @returns Task object.
  */
 export function parseTask(description: string): Task {
     const lower = description.toLowerCase();
@@ -21,13 +22,13 @@ export function parseTask(description: string): Task {
         type = TaskType.BUGFIX;
     }
 
-    // Extract scope: look for words after 'in', 'for', 'to', or code entities
+    // Extract scope: look for words after 'in', 'for', 'to', or code entities.
     let scope = "";
     const scopeMatch = description.match(/(?:in|for|to) ([\w\s./-]+)/i);
     if (scopeMatch) {
         scope = scopeMatch[1].trim();
     } else {
-        // Fallback: try to extract code entity (e.g., function, file, class)
+        // Fallback: try to extract code entity (e.g., function, file, class).
         const entityMatch = description.match(/(function|file|class|module|component) ([\w./-]+)/i);
         if (entityMatch) {
             scope = `${entityMatch[1]} ${entityMatch[2]}`;

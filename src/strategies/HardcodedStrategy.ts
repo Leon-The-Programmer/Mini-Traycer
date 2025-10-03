@@ -1,7 +1,13 @@
 import { Task, TaskBreakdown, Step, TaskType, AnalyzerStrategy } from "../types/analysis";
 
+/**
+ * A Rule-Based strategy that maps task types to predefined step templates.
+ * Picks the template based on the task type and fills in scope details.
+ * Falls back to generic (OTHER) steps if scope is missing.
+*/
+
 export class HardcodedStrategy implements AnalyzerStrategy {
-    analyze(task: Task): TaskBreakdown {
+    analyze(task: Task): TaskBreakdown | Promise<TaskBreakdown> {
         const type = task.type || TaskType.OTHER;
         let steps: Step[] = [];
 
@@ -297,17 +303,17 @@ export class HardcodedStrategy implements AnalyzerStrategy {
 
     private sanitizeScope(scope: string): string {
         if (!scope) return "scope";
-        // Trim and normalize
+        // Trim and normalize.
         let s = scope.trim();
-        // Replace spaces and underscores with hyphens
+        // Replace spaces and underscores with hyphens.
         s = s.replace(/[_\s]+/g, "-");
-        // Remove characters that are not alphanumeric or hyphens
+        // Remove characters that are not alphanumeric or hyphens.
         s = s.replace(/[^a-zA-Z0-9-]/g, "");
-        // Collapse multiple hyphens
+        // Collapse multiple hyphens.
         s = s.replace(/-+/g, "-");
-        // Lowercase for file names
+        // Lowercase for file names.
         s = s.toLowerCase();
-        // Trim leading/trailing hyphens
+        // Trim leading/trailing hyphens.
         s = s.replace(/^-+|-+$/g, "");
         if (!s) return "scope";
         return s;
@@ -315,13 +321,13 @@ export class HardcodedStrategy implements AnalyzerStrategy {
 
     private summarizeScopeFromDescription(description?: string): string {
         if (!description) return "task";
-        // Try to pick a short token from the description, fallback to 'task'
+        // Try to pick a short token from the description, fallback to 'task'.
         const tokens = description
             .split(/[\s,:]+/)
             .filter(Boolean)
             .map(t => t.replace(/[^a-zA-Z0-9]/g, ""));
         if (tokens.length === 0) return "task";
-        // Prefer a noun-like token: pick first meaningful token up to length 20
+        // Prefer a noun-like token: pick first meaningful token up to length 20.
         const candidate = tokens[0].slice(0, 20);
         return candidate || "task";
     }

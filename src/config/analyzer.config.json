@@ -1,7 +1,10 @@
 {
   "strategy": "Hardcoded",
-  "llm": {
+  "groq": {
     "apiKey": "",
-    "model": "gpt-4o-mini"
+    "model": "",
+    "baseUrl": "",
+    "maxRetries": 3,
+    "timeout": 30000
   }
 }
