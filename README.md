@@ -66,7 +66,8 @@ git clone https://github.com/Leon-The-Programmer/Mini-Traycer.git
 cd mini-traycer
 
 # 2. Install dependencies
-npm install
+npm install typescript --save-dev
+npm install ts-node @types/node --save-dev
 
 # 3. Build the project
 npm run build
