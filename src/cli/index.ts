@@ -2,10 +2,6 @@
 
 //   CLI entry point for Mini-Traycer.
 //   Supports both hardcoded templates and AI-powered planning using Groq.
-  
-//   CLI Commands:
-//   Hardcoded: `npm run start:cli "Add authentication"`.
-//   LLM: `ANALYZER_STRATEGY=LLM` then followed by `npm run start:cli "Add authentication"`.
 
 import { parseTask, Analyzer, formatTaskBreakdown } from "../core";
 import { LLMStrategy } from "../strategies/LLMStrategy";

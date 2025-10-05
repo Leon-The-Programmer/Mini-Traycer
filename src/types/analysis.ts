@@ -16,7 +16,7 @@ export interface Task {
     // The categorized type of task.
     type: TaskType;
 
-    // The extracted scope/area of the codebase affected.
+    // The extracted scope, i.e. what the task is all about?
     scope: string;
 }
 
