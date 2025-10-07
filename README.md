@@ -19,7 +19,7 @@
 ---
 
 ## 🎬 Video Presentation
-[Watch The Video that Demonstrate this work](https://drive.google.com/file/d/1DP_8QHfYMqva2Y3W5CW7CRkH5-I1vJH4/view?usp=sharing)
+[Watch the video that demonstrates this work](https://drive.google.com/file/d/1DP_8QHfYMqva2Y3W5CW7CRkH5-I1vJH4/view?usp=sharing)
 
 ## ✨ Project Overview
 
